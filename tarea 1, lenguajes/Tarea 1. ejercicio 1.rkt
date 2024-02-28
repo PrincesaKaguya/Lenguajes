@@ -1,0 +1,16 @@
+(define (calcular_monto capital interes años)
+  (define monto (* capital (expt (+ 1 interes) años)))
+  monto)
+
+(display "Ingrese el capital inicial: ")
+(define capital (read))
+(display "Ingrese la tasa de interés (en decimal): ")
+(define interes (read))
+(display "Ingrese el número de años: ")
+(define años (read))
+
+(display "El monto recibido después de ")
+(display años)
+(display " años es: ")
+(display (calcular_monto capital interes años))
+(newline)
