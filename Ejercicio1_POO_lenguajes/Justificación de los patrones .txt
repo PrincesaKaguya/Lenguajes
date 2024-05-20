@@ -1,0 +1,25 @@
+Justificación de los patrones 
+
+se incorporó los patrones de diseño Singleton y Abstract Factory en el código. A continuación, se explicará dónde y por qué se utilizan estos patrones, y se documentarán las diferencias entre Eager Singleton y Lazy Singleton, seleccionando el más adecuado para esta implementación.
+
+Patrón Singleton
+se utilizó el patrón Singleton para la clase Agenda. La razón es que en una aplicación típica, solo debería existir una única instancia de la agenda que gestione todos los contactos y eventos. Esto asegura que todas las operaciones se realicen sobre la misma instancia centralizada.
+
+Eager Singleton vs Lazy Singleton:
+
+Eager Singleton: La instancia se crea en el momento de la carga de la clase. Esto es simple y seguro en términos de subprocesos, pero puede ser ineficiente si la instancia nunca se utiliza.
+Lazy Singleton: La instancia se crea sólo cuando se solicita por primera vez. Esto ahorra recursos si la instancia no se necesita de inmediato, pero requiere manejo de concurrencia para ser seguro en un entorno multihilo.
+Para esta implementación, el Lazy Singleton es más adecuado porque no estamos seguros de que la Agenda se vaya a utilizar siempre y queremos diferir su creación hasta que sea necesario.
+
+Patrón Abstract Factory
+El patrón Abstract Factory será utilizado para la creación de diferentes tipos de Contacto y Evento. Esto nos permitirá encapsular la creación de los objetos y hacer el código más flexible y extensible.
+
+Justificación
+Singleton para Agenda:
+
+Garantiza una única instancia de la agenda, centralizando todas las operaciones en un solo lugar. Esto previene inconsistencias y es más eficiente en términos de uso de memoria y gestión de estado.
+Lazy Singleton se elige porque queremos diferir la creación de la instancia hasta que sea necesario, optimizando el uso de recursos.
+Abstract Factory para Creación de Contactos y Eventos:
+
+Encapsula la creación de objetos Contacto y Evento, promoviendo la extensibilidad y flexibilidad. Si en el futuro se necesita agregar más tipos de contactos o eventos, solo necesitamos extender la fábrica, sin modificar el código existente.
+Este diseño modular y extensible facilita la gestión de contactos y eventos, manteniendo la coherencia y asegurando un manejo eficiente de recursos.
